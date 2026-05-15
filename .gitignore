@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+next-env.d.ts
+
+# build outputs
+out/
+build/
+
+# env
+.env*.local
+
+# lockfiles (none committed by upstream)
+package-lock.json
+
+# misc
+.DS_Store
+*.log
