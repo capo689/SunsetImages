@@ -8,12 +8,12 @@ export const config = {
 
 const PUBLIC_PATHS = new Set(["/"]);
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (PUBLIC_PATHS.has(pathname)) return NextResponse.next();
 
   const cookie = req.cookies.get(COOKIE_NAME)?.value;
-  if (verifyCookie(cookie)) return NextResponse.next();
+  if (await verifyCookie(cookie)) return NextResponse.next();
 
   const url = req.nextUrl.clone();
   url.pathname = "/";
